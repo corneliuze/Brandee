@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
                         int w = 0;
 
-                        while(w < c ){
+                        while(w < c ) {
                             w++;
 
                             String chars = "abcdefghijklmnopqrstuvwxyz";
@@ -78,13 +78,16 @@ public class MainActivity extends AppCompatActivity {
                             Random random = new Random();
                             char r = chars.charAt(random.nextInt(chars.length()));
 
-                            char[] charArray2 = new char [c];
-                            // i want to add r to charArray2 then merge charArray with charArray 2 to give the options users have to pick from..
+                            String string = Character.toString(r);
+                            String string1 = string + r;
+                        }
 
 
 
 
-                }
+
+
+
             } } }
             catch (JSONException e) {
                 e.printStackTrace();
