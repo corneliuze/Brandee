@@ -4,7 +4,7 @@
     android:layout_width="40dp"
     android:layout_margin="5dp"
     android:layout_height="40dp"
-    android:background=""
+    android:background="@drawable/black_bg"
     android:id="@+id/answer_rel_view">
 
     <TextView
