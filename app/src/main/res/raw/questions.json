@@ -1,33 +1,34 @@
-{
-    "Questions": [
-      {
-        "logo": "mustang.png",
-        "id": "01",
-        "name": "mustang"
-         
+[{
+         "logo": "mustang.png",
+         "id": "01",
+         "name": "mustang",
+         "level": "hard"
         },
         {
             "logo": "reddit.png",
             "id": "02",
-            "name": "reddit"
+            "name": "reddit",
+            "level": "moderate"
              
             },
         {
                 "logo": "picasa.png",
                 "id": "03",
-                "name": "picasa"
-                 
+                "name": "picasa",
+                "level": "easy"
             },
         {
                 "logo": "wwf.png",
                 "id": "01",
-                "name": "wwf"
+                "name": "wwf",
+                "level": "hard"
                  
             },
             {
                 "logo": "roxy.png",
                 "id": "01",
-                "name": "roxy"
+                "name": "roxy",
+                "level": "hard"
                  
                 }
             
@@ -37,4 +38,3 @@
        
 
     ]
-    }

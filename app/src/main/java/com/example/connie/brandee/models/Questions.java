@@ -1,4 +1,4 @@
-package com.example.connie.brandee.MODELS;
+package com.example.connie.brandee.models;
 
 public class Questions {
     String id;
