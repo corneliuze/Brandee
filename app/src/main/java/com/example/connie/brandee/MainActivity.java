@@ -1,15 +1,18 @@
 package com.example.connie.brandee;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.connie.brandee.data.PreferenceManagger;
 import com.example.connie.brandee.models.Questions;
 import com.example.connie.brandee.views.AnswerAdapter;
 import com.example.connie.brandee.views.InputAdapter;
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements InputAdapter.Inpu
     Context context;
     InputAdapter inputAdapter;
     AnswerAdapter answerAdapter;
+    PreferenceManagger preferenceManagger;
+    private String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +48,19 @@ public class MainActivity extends AppCompatActivity implements InputAdapter.Inpu
         answerRecyclerView = findViewById(R.id.answer_recyclerview);
         inputRecyxlerView = findViewById(R.id.input_recyclerview);
         context = getApplicationContext();
+        preferenceManagger = new PreferenceManagger(context);
+
         try{
             parseJson(readFromFile());
         }catch (IOException e){
-
+            e.printStackTrace();
         }
 
         Glide.with(getApplicationContext())
                 .load(Uri.parse("file:///android_asset/" + currentQuestion.getLogo()))
                 .into(logoImage);
         inputAdapter = new InputAdapter(context, inputs,  this,  currentQuestion.getName().length());
-        answerAdapter = new AnswerAdapter(context, currentQuestion.getName().toUpperCase(),this, this);
+        answerAdapter = new AnswerAdapter(context, currentQuestion,this, this);
 
         inputRecyxlerView.setLayoutManager(new GridLayoutManager(context, 7));
         inputRecyxlerView.setAdapter(inputAdapter);
@@ -63,15 +70,37 @@ public class MainActivity extends AppCompatActivity implements InputAdapter.Inpu
         answerRecyclerView.setAdapter(answerAdapter);
     }
 
-
+public Questions getRandonUnAnsweredQuestions(ArrayList<Questions> allQuestions){
+        if (preferenceManagger.getAnsweredQuestions().split(",").length-1 < allQuestions.size()){
+            int questionIndex = new Random().nextInt(allQuestions.size());
+            Questions questions = allQuestions.get(questionIndex);
+            boolean answered = preferenceManagger.isQuestionAnswered(questions.getId());
+            if (answered) return getRandonUnAnsweredQuestions(allQuestions);
+            else return questions;
+        }
+        return  null;
+}
     // this methods stores the json string into an arraylist called formlist
-    public void parseJson(String ret) throws IOException {
+    public void parseJson(String ret)  {
 
             ArrayList<Questions> allQuestions = new Gson()//this is where the gson library is used to convert .json files to an array list
                     .fromJson(ret, new TypeToken<ArrayList<Questions>>() {
                     }.getType());
 
-            currentQuestion = allQuestions.get(4);
+            //fetch current question
+
+        currentQuestion = preferenceManagger.getCurrentQuestion();
+        if (currentQuestion == null){
+            Log.i(TAG, "FIRST NULL");
+            currentQuestion = getRandonUnAnsweredQuestions(allQuestions);
+        }
+        if (currentQuestion == null){
+            Log.i(TAG, "second null");
+            Toast.makeText(context, "You have completed the game.", Toast.LENGTH_SHORT).show();
+        return;
+        }
+
+            preferenceManagger.setCurrentQuestions(currentQuestion);
             String charac = currentQuestion.getName().toUpperCase();   // each instance forms a string called charac
             char[] charArray = charac.toCharArray(); // charac  converts each  string to a character array
             int a = charArray.length; //we get the length of each chararray
@@ -103,16 +132,21 @@ public class MainActivity extends AppCompatActivity implements InputAdapter.Inpu
 
         @Override
     public void onInputClick(int position, char cr){
-        answerAdapter.addNewCharacter(position, cr);
+        answerAdapter.addNewCharacter(cr);
         }
 
         @Override
         public void onAnswerClicked(char cr){
         inputAdapter.onReturnCharacter(cr);
         }
-        public void onAnswerFilled(boolean isCorrect){
+        @Override
+        public void onAnswerFilled(boolean isCorrect, Questions questions){
         if (isCorrect){
             Toast.makeText(context, "you are correct!!!", Toast.LENGTH_LONG).show();
+            preferenceManagger.addToAnsweredQuestion(questions.getId());
+            preferenceManagger.setCurrentQuestions(null);
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
         }else {
 
             Toast.makeText(context, "you are wrong!!!", Toast.LENGTH_LONG).show();

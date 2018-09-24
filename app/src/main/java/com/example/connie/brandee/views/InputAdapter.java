@@ -42,7 +42,7 @@ public class InputAdapter extends RecyclerView.Adapter<InputAdapter.InputViewHol
             inputViewHolder.itemView.setVisibility(View.INVISIBLE);
             }else {
             inputViewHolder.itemView.setVisibility(View.VISIBLE);
-             inputViewHolder.itemView.setOnClickListener(view -> {
+             inputViewHolder.itemView.setOnClickListener((View view) -> {
                  if (Collections.frequency(input, '#') != lengthOfAnswer){
                      inputViewHolder.itemView.setVisibility(View.INVISIBLE);
                      input.remove(i);

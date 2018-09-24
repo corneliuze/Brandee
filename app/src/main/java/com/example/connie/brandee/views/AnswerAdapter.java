@@ -10,22 +10,23 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.connie.brandee.R;
+import com.example.connie.brandee.models.Questions;
 
 import java.util.ArrayList;
 
 public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerViewHolder> {
-
+     Questions questions;
     Context context;
     String answer;
     ArrayList<Character> inputs = new ArrayList<>();
 
     AnswerClickListener answerClickListener;
     AnswerFilledListener answerFilledListener;
-    public  AnswerAdapter (Context context, String answer,  AnswerClickListener answerClickListener,
+    public  AnswerAdapter (Context context, Questions questions,  AnswerClickListener answerClickListener,
                            AnswerFilledListener answerFilledListener){
         this.context = context;
-        this.answer = answer;
-        this.inputs = inputs;
+        this.answer = questions.getName().toUpperCase();
+        this.questions = questions;
         this.answerClickListener = answerClickListener;
         this.answerFilledListener = answerFilledListener;
         for (int i = 0; i < answer.length(); i++){
@@ -54,15 +55,8 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
                 notifyDataSetChanged();
                 answerClickListener.onAnswerClicked(text);
             });
-            if (inputs.indexOf('#') == -1){
-                String ans = "";
-                for (char cr : inputs){
-                    ans += cr;
-                }
-                boolean isCorrect = answer.equals(ans);
-                answerFilledListener.onAnswerFilled(isCorrect);
-            }
         }
+
     }
 
     @Override
@@ -79,17 +73,27 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
             answerTextView = itemView.findViewById(R.id.answer_text_view);
         }
     }
-    public void addNewCharacter(int position, char cr){
+    public void addNewCharacter(char cr){
         int index = inputs.indexOf('#');
-        inputs.remove(index);
-        inputs.add(index, cr);
-        notifyDataSetChanged();
+        if (index != -1) {
+            inputs.remove(index);
+            inputs.add(index, cr);
+            notifyDataSetChanged();
 
+            if (inputs.indexOf('#') == -1) {
+                String ans = "";
+                for (char c : inputs) {
+                    ans += c;
+                }
+                boolean isCorrect = answer.equals(ans);
+                 answerFilledListener.onAnswerFilled(isCorrect, questions);
+            }
+        }
     }
     public interface AnswerClickListener{
         void onAnswerClicked(char cr);
     }
     public interface  AnswerFilledListener{
-        void onAnswerFilled(boolean isCorrect);
+        void onAnswerFilled(boolean isCorrect, Questions questions);
     }
 }
