@@ -1,6 +1,7 @@
 package com.example.connie.brandee.views;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ public class InputAdapter extends RecyclerView.Adapter<InputAdapter.InputViewHol
     ArrayList<Character> input;
     InputClickListener inputClickListener;
     int lengthOfAnswer;
+
 
     public InputAdapter(Context context, ArrayList<Character> input, InputClickListener inputClickListener, int lengthOfAnswer){
         this.context = context;
@@ -60,6 +62,7 @@ public class InputAdapter extends RecyclerView.Adapter<InputAdapter.InputViewHol
     public int getItemCount() {
         return input.size();
     }
+
     public void onReturnCharacter(char cr){
         int index = input.indexOf('#');
         input.remove(index);
@@ -80,7 +83,9 @@ public class InputAdapter extends RecyclerView.Adapter<InputAdapter.InputViewHol
     }
 
     public interface InputClickListener  {
+
         void onInputClick(int position, char ch);
+
 
     }
 }
