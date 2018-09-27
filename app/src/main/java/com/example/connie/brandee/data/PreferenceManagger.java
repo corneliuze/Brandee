@@ -19,7 +19,7 @@ public class PreferenceManagger {
     }
 public void addToAnsweredQuestion(String id){
         String allQsts = getAnsweredQuestions();
-        allQsts += ("," + id);
+        allQsts += ("," + id);  // this adds every question answered to a string.
         this.sharedPreferences.edit().putString(ANSWERED_QUESTIONS, allQsts).apply();
 
 }

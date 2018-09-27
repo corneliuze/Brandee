@@ -127,7 +127,7 @@ public Questions getRandonUnAnsweredQuestions(ArrayList<Questions> allQuestions)
         public String readFromFile ()throws IOException {
 
             InputStream inputStream = getResources().openRawResource(R.raw.questions);
-            return IOUtils.toString(inputStream);
+            return IOUtils.toString(inputStream); // apache library
         }
 
         @Override
