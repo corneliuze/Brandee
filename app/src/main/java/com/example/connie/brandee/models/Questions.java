@@ -30,13 +30,7 @@ public class Questions {
         this.logo = logo;
     }
 
-    public String getLevel() {
-        return level;
-    }
 
-    public void setLevel(String level) {
-        this.level = level;
-    }
 
     public Questions(String id, String name, String logo, String level) {
 

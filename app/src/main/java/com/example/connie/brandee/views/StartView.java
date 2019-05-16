@@ -7,24 +7,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.connie.brandee.MainActivity;
 import com.example.connie.brandee.R;
 
 public class StartView extends Activity {
 
-    Button  playButton, soundButton;
-    MediaPlayer mp;
+    Button  playButton;
+    private LottieAnimationView lottieAnimationView;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_view);
 
         playButton  = findViewById(R.id.play);
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.clicksound);
+        lottieAnimationView = findViewById(R.id.empty_img);
 
-        soundButton = findViewById(R.id.sound_button);
         }
-    public void openMainActivity(View view) {
-        mp.start();
+   public void openMainActivity(View view) {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }

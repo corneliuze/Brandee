@@ -1,0 +1,9 @@
+<changelist name="i_am_working_on_the_logic_to_read_the_names_from_the_questions__json_file_and_convert_each" date="1537750806051" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/i_am_working_on_the_logic_to_read_the_names_from_the_questions__json_file_and_convert_each/shelved.patch" />
+  <option name="DESCRIPTION" value="i am working on the logic to read the names from the questions..json file and convert each string to a character array, subtract from 20 which is the number of input characters i want to make available for the user." />
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/caches/build_file_checksums.ser" />
+    <option name="AFTER_PATH" value=".idea/caches/build_file_checksums.ser" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/i_am_working_on_the_logic_to_read_the_names_from_the_questions__json_file_and_convert_each/build_file_checksums.ser" />
+  </binary>
+</changelist>

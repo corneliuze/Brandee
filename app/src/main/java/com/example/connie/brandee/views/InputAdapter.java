@@ -16,10 +16,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class InputAdapter extends RecyclerView.Adapter<InputAdapter.InputViewHolder> {
-    Context context;
+    static Context context;
     ArrayList<Character> input;
     InputClickListener inputClickListener;
     int lengthOfAnswer;
+
 
 
     public InputAdapter(Context context, ArrayList<Character> input, InputClickListener inputClickListener, int lengthOfAnswer){
@@ -27,6 +28,7 @@ public class InputAdapter extends RecyclerView.Adapter<InputAdapter.InputViewHol
         this.input = input;
         this.inputClickListener = inputClickListener;
         this.lengthOfAnswer = lengthOfAnswer;
+
     }
     @NonNull
     @Override
@@ -83,6 +85,7 @@ public class InputAdapter extends RecyclerView.Adapter<InputAdapter.InputViewHol
     }
 
     public interface InputClickListener  {
+
 
         void onInputClick(int position, char ch);
 

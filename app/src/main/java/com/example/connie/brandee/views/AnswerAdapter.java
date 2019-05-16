@@ -15,13 +15,13 @@ import com.example.connie.brandee.models.Questions;
 import java.util.ArrayList;
 
 public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerViewHolder> {
-     Questions questions;
+    Questions questions;
     Context context;
     String answer;
     ArrayList<Character> inputs = new ArrayList<>();
-
     AnswerClickListener answerClickListener;
     AnswerFilledListener answerFilledListener;
+
     public  AnswerAdapter (Context context, Questions questions,  AnswerClickListener answerClickListener,
                            AnswerFilledListener answerFilledListener){
         this.context = context;

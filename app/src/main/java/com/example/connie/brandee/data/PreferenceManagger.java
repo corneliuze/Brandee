@@ -29,7 +29,8 @@ public void addToAnsweredQuestion(String id){
     }
     public Questions getCurrentQuestion(){
         String questionJsonToString = this.sharedPreferences.getString(CURRENT_QUESTIONS, "{}");
-        if (questionJsonToString.equals("{}")) return null;
+        if (questionJsonToString.equals("{}"))
+            return null;
         return new Gson().fromJson(questionJsonToString, Questions.class);
     }
     public void setCurrentQuestions(Questions questions){

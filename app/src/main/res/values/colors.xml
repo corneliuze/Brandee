@@ -7,6 +7,10 @@
     <color name="green">#187E03</color>
     <color name= "night_mode">#0c3955</color>
     <color name="nightmode2">#1a4876</color>
+    <color name="red">#FF0000</color>
+    <color name="blue">#2196F3</color>
+
+    <color name="light_green">#00FF00</color>
 
     <color name="skyeBlue">#c4c5ff</color>
     <color name="white"> #ffffff</color>

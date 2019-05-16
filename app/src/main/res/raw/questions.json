@@ -1,40 +1,40 @@
-[{
-         "logo": "mustang.png",
-         "id": "01",
-         "name": "mustang",
-         "level": "hard"
-        },
-        {
-            "logo": "reddit.png",
-            "id": "02",
-            "name": "reddit",
-            "level": "moderate"
-             
-            },
-        {
-                "logo": "playboy.png",
-                "id": "03",
-                "name": "playboy",
-                "level": "easy"
-            },
-        {
-                "logo": "wwf.png",
-                "id": "01",
-                "name": "wwf",
-                "level": "hard"
-                 
-            },
-            {
-                "logo": "roxy.png",
-                "id": "01",
-                "name": "roxy",
-                "level": "hard"
-                 
-                }
-            
-                
-            
-        
-       
+[
+  // this is the list of objects in a json array containing the images and the names
+  {
+    "logo": "mustang.png",
+    "id": "01",
+    "name": "mustang",
+    "level": "hard"
+  },
+  {
+    "logo": "reddit.png",
+    "id": "02",
+    "name": "reddit",
+    "level": "moderate"
+  },
+  {
+    "logo": "playboy.png",
+    "id": "03",
+    "name": "playboy",
+    "level": "easy"
+  },
+  {
+    "logo": "wwf.png",
+    "id": "04",
+    "name": "wwf",
+    "level": "hard"
+  },
+  {
+    "logo": "roxy.png",
+    "id": "05",
+    "name": "roxy",
+    "level": "hard"
+  },
+  {
+    "logo": "nike.png",
+    "id": "06",
+    "name": "nike",
+    "level": "hard"
+  }
 
-    ]
+]
