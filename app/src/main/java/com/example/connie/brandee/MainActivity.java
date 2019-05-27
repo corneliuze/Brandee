@@ -1,23 +1,14 @@
 package com.example.connie.brandee;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -25,6 +16,8 @@ import com.example.connie.brandee.data.PreferenceManagger;
 import com.example.connie.brandee.models.Questions;
 import com.example.connie.brandee.views.AnswerAdapter;
 import com.example.connie.brandee.views.InputAdapter;
+import com.example.connie.brandee.views.RightResultActivity;
+import com.example.connie.brandee.views.WrongResultActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -36,14 +29,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-import static com.example.connie.brandee.R.raw.correctsign;
+
 
 public class MainActivity extends AppCompatActivity implements InputAdapter.InputClickListener,
         AnswerAdapter.AnswerClickListener, AnswerAdapter.AnswerFilledListener {
 
     ImageView logoImage;
     RecyclerView answerRecyclerView, inputRecyxlerView;
-    Questions currentQuestion, currentLogo;
+    Questions currentQuestion;
+
     ArrayList<Character> inputs;
 
 
@@ -57,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements InputAdapter.Inpu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = getApplicationContext();
         setContentView(R.layout.activity_main);
         logoImage = findViewById(R.id.logo_image_view);
         answerRecyclerView = findViewById(R.id.answer_recyclerview);
@@ -177,44 +172,27 @@ public class MainActivity extends AppCompatActivity implements InputAdapter.Inpu
     @Override
     public void onAnswerFilled(boolean isCorrect, Questions questions) {
         if (isCorrect) {
-          AlertDialog.Builder builder =   new AlertDialog.Builder(this);
-          LayoutInflater inflater = this.getLayoutInflater();
-            View view = inflater.inflate(R.layout.correct_list_view, null);
-          builder.setView(view);
-          ImageButton imageButton = view.findViewById(R.id.imgButton);
-          //RelativeLayout relativeLayout =view.findViewById(R.id.alert_dialog);
-          //relativeLayout.setVisibility(view.GONE);
-          imageButton.getBackground().setAlpha(64);
-          imageButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+
                     preferenceManagger.addToAnsweredQuestion(questions.getId());
                     preferenceManagger.setCurrentQuestions(null);
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    finish();
+                   openResult();
                     }
-            });
-          builder.show();
-
-        } else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            LayoutInflater inflater = this.getLayoutInflater();
-            View view = inflater.inflate(R.layout.wrong_list_view, null);
-            builder.setView(view);
-            ImageButton wrongButton = view.findViewById(R.id.wrng_imgButton);
-            wrongButton.getBackground().setAlpha(64);
-            AlertDialog alert = builder.show();
-            wrongButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    alert.dismiss();
-                    }
-            });
-            alert.show();
+        else {
+            openWrongResult();
 
         }
 
         }
+
+        public void openResult(){
+        Intent intent = new Intent(MainActivity.this, RightResultActivity.class);
+        startActivity(intent);
+        }
+
+    public void openWrongResult(){
+        Intent intent = new Intent(MainActivity.this, WrongResultActivity.class);
+        startActivity(intent);
+    }
 }
 
 

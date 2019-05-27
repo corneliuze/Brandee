@@ -1,5 +1,5 @@
 [
-  // this is the list of objects in a json array containing the images and the names
+
   {
     "logo": "mustang.png",
     "id": "01",
@@ -35,6 +35,468 @@
     "id": "06",
     "name": "nike",
     "level": "hard"
+  },
+  {
+    "logo": "adidas.png",
+    "id": "07",
+    "name": "adidas",
+    "level": "hard"
+  },
+  {
+    "logo": "airtel.png",
+    "id": "08",
+    "name": "airtel",
+    "level": "hard"
+  },{
+  "logo": "android.png",
+  "id": "09",
+  "name": "android",
+  "level": "hard"
+},
+  {
+    "logo": "apple.png",
+    "id": "10",
+    "name": "apple",
+    "level": "hard"
+  },
+  {
+    "logo": "audi.png",
+    "id": "11",
+    "name": "audi",
+    "level": "hard"
+  },
+  {
+    "logo": "batman.png",
+    "id": "12",
+    "name": "batman",
+    "level": "hard"
+  },
+  {
+    "logo": "beats.png",
+    "id": "13",
+    "name": "beats",
+    "level": "hard"
+  },
+  {
+    "logo": "bentley.png",
+    "id": "14",
+    "name": "bentley",
+    "level": "hard"
+  },
+  {
+    "logo": "bipolar.png",
+    "id": "15",
+    "name": "bipolar",
+    "level": "hard"
+  },
+  {
+    "logo": "bmw.png",
+    "id": "16",
+    "name": "bmw",
+    "level": "hard"
+  },
+  {
+    "logo": "bosch.png",
+    "id": "17",
+    "name": "bosch",
+    "level": "hard"
+  },
+  {
+    "logo": "burgerking.png",
+    "id": "18",
+    "name": "burgerking",
+    "level": "hard"
+  },
+  {
+    "logo": "chanel.png",
+    "id": "19",
+    "name": "chanel",
+    "level": "hard"
+  },
+  {
+    "logo": "chevrolet.png",
+    "id": "20",
+    "name": "chevrolet",
+    "level": "hard"
+  },
+  {
+    "logo": "cisco.png",
+    "id": "21",
+    "name": "cisco",
+    "level": "hard"
+  },
+  {
+    "logo": "cocacola.png",
+    "id": "22",
+    "name": "cocacola",
+    "level": "hard"
+  },
+  {
+    "logo": "derbycounty.png",
+    "id": "23",
+    "name": "derbycounty",
+    "level": "hard"
+  },
+  {
+    "logo": "dominos.png",
+    "id": "24",
+    "name": "dominos",
+    "level": "hard"
+  },
+  {
+    "logo": "facebook.png",
+    "id": "25",
+    "name": "facebook",
+    "level": "hard"
+  },
+  {
+    "logo": "ferrari.png",
+    "id": "26",
+    "name": "ferrari",
+    "level": "hard"
+  },
+  {
+    "logo": "generali.png",
+    "id": "27",
+    "name": "generali",
+    "level": "hard"
+  },
+  {
+    "logo": "giorgioarmani.png",
+    "id": "28",
+    "name": "giorgioarmani",
+    "level": "hard"
+  },
+  {
+    "logo": "github.png",
+    "id": "29",
+    "name": "github",
+    "level": "hard"
+  },
+  {
+    "logo": "grammy.png",
+    "id": "30",
+    "name": "grammy",
+    "level": "hard"
+  },
+  {
+    "logo": "hartford.png",
+    "id": "31",
+    "name": "hartford",
+    "level": "hard"
+  },
+  {
+    "logo": "icq.png",
+    "id": "32",
+    "name": "icq",
+    "level": "hard"
+  },
+  {
+    "logo": "instagram.png",
+    "id": "33",
+    "name": "instagram",
+    "level": "hard"
+  },
+  {
+    "logo": "jaguar.png",
+    "id": "34",
+    "name": "jaguar",
+    "level": "hard"
+  },
+  {
+    "logo": "java.png",
+    "id": "35",
+    "name": "java",
+    "level": "hard"
+  },
+  {
+    "logo": "juventus.png",
+    "id": "36",
+    "name": "juventus",
+    "level": "hard"
+  },
+  {
+    "logo": "lg.png",
+    "id": "37",
+    "name": "lg",
+    "level": "hard"
+  },
+  {
+    "logo": "linkedin.png",
+    "id": "38",
+    "name": "linkedin",
+    "level": "hard"
+  },
+  {
+    "logo": "linux.png",
+    "id": "39",
+    "name": "linux",
+    "level": "hard"
   }
+,
+  {
+    "logo": "louisvuitton.png",
+    "id": "40",
+    "name": "louisvuitton",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "mastercard.png",
+    "id": "41",
+    "name": "mastercard",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "mazda.png",
+    "id": "42",
+    "name": "mazda",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "mcdonalds.png",
+    "id": "43",
+    "name": "mcdonalds",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "mercedesbenz.png",
+    "id": "44",
+    "name": "mercedesbenz",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "michaelkors.png",
+    "id": "45",
+    "name": "michaelkors",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "michelin.png",
+    "id": "46",
+    "name": "michelin",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "mitsubishi.png",
+    "id": "47",
+    "name": "mitsubishi",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "Napster.png",
+    "id": "48",
+    "name": "Napster",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "nbc.png",
+    "id": "49",
+    "name": "nbc",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "nvidia.png",
+    "id": "50",
+    "name": "nvidia",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "pepsi.png",
+    "id": "51",
+    "name": "pepsi",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "picasa.png",
+    "id": "52",
+    "name": "picasa",
+    "level": "hard"
+  }
+,
+  {
+    "logo": "pinterest.png",
+    "id": "53",
+    "name": "pinterest",
+    "level": "hard"
+  },{
+  "logo": "lakers.png",
+  "id": "54",
+  "name": "lakers",
+  "level": "hard"
+},{
+  "logo": "premierleague.png",
+  "id": "55",
+  "name": "premierleague",
+  "level": "hard"
+},{
+  "logo": "pringles.png",
+  "id": "56",
+  "name": "pringles",
+  "level": "hard"
+},{
+  "logo": "puma.png",
+  "id": "57",
+  "name": "puma",
+  "level": "hard"
+},{
+  "logo": "python.png",
+  "id": "58",
+  "name": "python",
+  "level": "hard"
+},{
+  "logo": "bucks.png",
+  "id": "59",
+  "name": "bucks",
+  "level": "hard"
+},{
+  "logo": "rolex.png",
+  "id": "60",
+  "name": "rolex",
+  "level": "hard"
+},{
+  "logo": "shell.png",
+  "id": "61",
+  "name": "shell",
+  "level": "hard"
+},{
+  "logo": "skoda.png",
+  "id": "62",
+  "name": "skoda",
+  "level": "hard"
+},{
+  "logo": "skype.png",
+  "id": "63",
+  "name": "skype",
+  "level": "hard"
+},{
+  "logo": "slack.png",
+  "id": "64",
+  "name": "slack",
+  "level": "hard"
+},{
+  "logo": "starbucks.png",
+  "id": "64",
+  "name": "starbucks",
+  "level": "hard"
+},{
+  "logo": "subaru.png",
+  "id": "65",
+  "name": "subaru",
+  "level": "hard"
+},{
+  "logo": "target.png",
+  "id": "66",
+  "name": "target",
+  "level": "hard"
+},{
+  "logo": "taxify.png",
+  "id": "67",
+  "name": "taxify",
+  "level": "hard"
+},{
+  "logo": "telegram.png",
+  "id": "68",
+  "name": "telegram",
+  "level": "hard"
+},{
+  "logo": "tesla.png",
+  "id": "69",
+  "name": "tesla",
+  "level": "hard"
+},{
+  "logo": "tmobile.png",
+  "id": "70",
+  "name": "tmobile",
+  "level": "hard"
+},{
+  "logo": "tommyhilfiger.png",
+  "id": "71",
+  "name": "tommyhilfiger",
+  "level": "hard"
+},{
+  "logo": "toyota.png",
+  "id": "72",
+  "name": "toyota",
+  "level": "hard"
+},{
+  "logo": "trukfit.png",
+  "id": "73",
+  "name": "trukfit",
+  "level": "hard"
+},{
+  "logo": "tui.png",
+  "id": "74",
+  "name": "tui",
+  "level": "hard"
+},{
+  "logo": "twitter.png",
+  "id": "75",
+  "name": "twitter",
+  "level": "hard"
+},{
+  "logo": "versace.png",
+  "id": "76",
+  "name": "versace",
+  "level": "hard"
+},{
+  "logo": "vodafone.png",
+  "id": "77",
+  "name": "vodafone",
+  "level": "hard"
+},{
+  "logo": "volkswagen.png",
+  "id": "78",
+  "name": "volkswagen",
+  "level": "hard"
+},{
+  "logo": "walmart.png",
+  "id": "79",
+  "name": "walmart",
+  "level": "hard"
+},{
+  "logo": "warnerbros.png",
+  "id": "80",
+  "name": "warnerbros",
+  "level": "hard"
+},{
+  "logo": "wikipedia.png",
+  "id": "81",
+  "name": "wikipedia",
+  "level": "hard"
+},{
+  "logo": "winamp.png",
+  "id": "82",
+  "name": "winamp",
+  "level": "hard"
+},{
+  "logo": "windows.png",
+  "id": "83",
+  "name": "windows",
+  "level": "hard"
+},{
+  "logo": "yahoo.png",
+  "id": "84",
+  "name": "yahoo",
+  "level": "hard"
+},{
+  "logo": "youtube.png",
+  "id": "85",
+  "name": "youtube",
+  "level": "hard"
+}
+
+
 
 ]
