@@ -13,19 +13,29 @@ import com.example.connie.brandee.R;
 
 public class StartView extends Activity {
 
-    Button  playButton;
+    Button playButton;
     private LottieAnimationView lottieAnimationView;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_view);
 
-        playButton  = findViewById(R.id.play);
+        playButton = findViewById(R.id.play);
         lottieAnimationView = findViewById(R.id.empty_img);
 
-        }
-   public void openMainActivity(View view) {
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainActivity();
+            }
+        });
+
+    }
+
+    public void openMainActivity() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
 

@@ -8,28 +8,26 @@
     android:background="@drawable/alert_dialog_bg">
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp">
 
-        <RelativeLayout
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="5dp"
-            >
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/check" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_marginBottom="20dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/check"/>
-
-            <ImageButton
-                android:id="@+id/imgButton"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="bottom|end"
-                android:src="@drawable/arrow" />
-        </RelativeLayout>
-
-
+        <ImageButton
+            android:id="@+id/imgButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:src="@drawable/arrow" />
     </RelativeLayout>
+
+
+</RelativeLayout>

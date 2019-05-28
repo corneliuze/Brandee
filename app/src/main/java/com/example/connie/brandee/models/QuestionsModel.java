@@ -1,6 +1,6 @@
 package com.example.connie.brandee.models;
 
-public class Questions {
+public class QuestionsModel {
     String id;
     String name;
     String logo;
@@ -32,7 +32,7 @@ public class Questions {
 
 
 
-    public Questions(String id, String name, String logo, String level) {
+    public QuestionsModel(String id, String name, String logo, String level) {
 
         this.id = id;
         this.name = name;

@@ -21,10 +21,14 @@ public class RightResultActivity extends AppCompatActivity {
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RightResultActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                setRightAnimation();
             }
         });
+    }
+
+    public void setRightAnimation() {
+        Intent intent = new Intent(RightResultActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

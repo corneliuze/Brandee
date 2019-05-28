@@ -10,43 +10,44 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.connie.brandee.R;
-import com.example.connie.brandee.models.Questions;
+import com.example.connie.brandee.models.QuestionsModel;
 
 import java.util.ArrayList;
 
 public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerViewHolder> {
-    Questions questions;
+    QuestionsModel questionsModel;
     Context context;
     String answer;
     ArrayList<Character> inputs = new ArrayList<>();
     AnswerClickListener answerClickListener;
     AnswerFilledListener answerFilledListener;
 
-    public  AnswerAdapter (Context context, Questions questions,  AnswerClickListener answerClickListener,
-                           AnswerFilledListener answerFilledListener){
+    public AnswerAdapter(Context context, QuestionsModel questionsModel, AnswerClickListener answerClickListener,
+                         AnswerFilledListener answerFilledListener) {
         this.context = context;
-        this.answer = questions.getName().toUpperCase();
-        this.questions = questions;
+        this.answer = questionsModel.getName().toUpperCase();
+        this.questionsModel = questionsModel;
         this.answerClickListener = answerClickListener;
         this.answerFilledListener = answerFilledListener;
-        for (int i = 0; i < answer.length(); i++){
+        for (int i = 0; i < answer.length(); i++) {
             inputs.add('#');
         }
     }
+
     @NonNull
     @Override
     public AnswerAdapter.AnswerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.each_answer_layout , viewGroup, false);
-        return  new AnswerViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.each_answer_layout, viewGroup, false);
+        return new AnswerViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AnswerAdapter.AnswerViewHolder answerViewHolder, int i) {
         char text = inputs.get(i);
-        if (text == '#'){
+        if (text == '#') {
             answerViewHolder.answerRelLayout.setBackground(context.getResources().getDrawable(R.drawable.black_bg));
             answerViewHolder.answerTextView.setText("");
-        }else {
+        } else {
             answerViewHolder.answerRelLayout.setBackground(context.getResources().getDrawable(R.drawable.green_bg));
             answerViewHolder.answerTextView.setText(String.valueOf(text));
             answerViewHolder.itemView.setOnClickListener(view -> {
@@ -67,13 +68,16 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
     public class AnswerViewHolder extends RecyclerView.ViewHolder {
         RelativeLayout answerRelLayout;
         TextView answerTextView;
+
         public AnswerViewHolder(@NonNull View itemView) {
             super(itemView);
             answerRelLayout = itemView.findViewById(R.id.answer_rel_view);
             answerTextView = itemView.findViewById(R.id.answer_text_view);
         }
     }
-    public void addNewCharacter(char cr){
+
+    // adding new character to the answer board
+    public void addNewCharacter(char cr) {
         int index = inputs.indexOf('#');
         if (index != -1) {
             inputs.remove(index);
@@ -86,14 +90,16 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.AnswerView
                     ans += c;
                 }
                 boolean isCorrect = answer.equals(ans);
-                 answerFilledListener.onAnswerFilled(isCorrect, questions);
+                answerFilledListener.onAnswerFilled(isCorrect, questionsModel);
             }
         }
     }
-    public interface AnswerClickListener{
+
+    public interface AnswerClickListener {
         void onAnswerClicked(char cr);
     }
-    public interface  AnswerFilledListener{
-        void onAnswerFilled(boolean isCorrect, Questions questions);
+
+    public interface AnswerFilledListener {
+        void onAnswerFilled(boolean isCorrect, QuestionsModel questionsModel);
     }
 }

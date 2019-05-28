@@ -11,6 +11,7 @@ import com.example.connie.brandee.R;
 
 public class WrongResultActivity extends AppCompatActivity {
     private Button wrongButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,10 +21,14 @@ public class WrongResultActivity extends AppCompatActivity {
         wrongButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WrongResultActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+                setWrongAnimation();
             }
         });
+    }
+
+    public void setWrongAnimation() {
+        Intent intent = new Intent(WrongResultActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

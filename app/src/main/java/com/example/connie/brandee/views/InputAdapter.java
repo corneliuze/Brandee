@@ -17,24 +17,23 @@ import java.util.Collections;
 
 public class InputAdapter extends RecyclerView.Adapter<InputAdapter.InputViewHolder> {
     static Context context;
-    ArrayList<Character> input;
-    InputClickListener inputClickListener;
-    int lengthOfAnswer;
+    private ArrayList<Character> input;
+    private InputClickListener inputClickListener;
+    private int lengthOfAnswer;
 
 
-
-    public InputAdapter(Context context, ArrayList<Character> input, InputClickListener inputClickListener, int lengthOfAnswer){
+    public InputAdapter(Context context, ArrayList<Character> input, InputClickListener inputClickListener, int lengthOfAnswer) {
         this.context = context;
         this.input = input;
         this.inputClickListener = inputClickListener;
         this.lengthOfAnswer = lengthOfAnswer;
 
     }
+
     @NonNull
     @Override
     public InputAdapter.InputViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.each_input_layout, viewGroup, false);
-
         return new InputViewHolder(view);
     }
 
@@ -42,20 +41,20 @@ public class InputAdapter extends RecyclerView.Adapter<InputAdapter.InputViewHol
     public void onBindViewHolder(@NonNull InputAdapter.InputViewHolder inputViewHolder, int i) {
         char text = input.get(i);
         inputViewHolder.inputTextView.setText(String.valueOf(text));
-        if (text == '#'){
+        if (text == '#') {
             inputViewHolder.itemView.setVisibility(View.INVISIBLE);
-            }else {
+        } else {
             inputViewHolder.itemView.setVisibility(View.VISIBLE);
-             inputViewHolder.itemView.setOnClickListener((View view) -> {
-                 if (Collections.frequency(input, '#') != lengthOfAnswer){
-                     inputViewHolder.itemView.setVisibility(View.INVISIBLE);
-                     input.remove(i);
-                     input.add(i, '#');
-                     inputClickListener.onInputClick(i, text);
-                     notifyDataSetChanged();
+            inputViewHolder.itemView.setOnClickListener((View view) -> {
+                if (Collections.frequency(input, '#') != lengthOfAnswer) {
+                    inputViewHolder.itemView.setVisibility(View.INVISIBLE);
+                    input.remove(i);
+                    input.add(i, '#');
+                    inputClickListener.onInputClick(i, text);
+                    notifyDataSetChanged();
 
-                 }
-             });
+                }
+            });
         }
 
     }
@@ -65,11 +64,21 @@ public class InputAdapter extends RecyclerView.Adapter<InputAdapter.InputViewHol
         return input.size();
     }
 
-    public void onReturnCharacter(char cr){
+
+    //to return the returned character from the answer board
+    public void onReturnCharacter(char cr) {
         int index = input.indexOf('#');
         input.remove(index);
         input.add(index, cr);
         notifyDataSetChanged();
+    }
+
+    public interface InputClickListener {
+
+
+        void onInputClick(int position, char ch);
+
+
     }
 
     public class InputViewHolder extends RecyclerView.ViewHolder {
@@ -82,13 +91,5 @@ public class InputAdapter extends RecyclerView.Adapter<InputAdapter.InputViewHol
             inputTextView = itemView.findViewById(R.id.input_text_view);
 
         }
-    }
-
-    public interface InputClickListener  {
-
-
-        void onInputClick(int position, char ch);
-
-
     }
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/white">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/empty_img"
@@ -12,61 +12,48 @@
         android:layout_height="250dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        app:lottie_rawRes="@raw/emptyy"
-        app:lottie_loop="true"
+        android:visibility="visible"
         app:lottie_autoPlay="true"
-        android:visibility="visible"/>
-
-
-
-
-
-
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/emptyy" />
 
 
     <TextView
+        android:id="@+id/name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/empty_img"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:padding="30dp"
-        android:layout_below="@id/empty_img"
         android:text="Brandee"
-        android:id="@+id/name_tv"
         android:textColor="@color/blue"
         android:textSize="30dp" />
 
     <LinearLayout
+        android:id="@+id/play_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/play_layout"
         android:layout_below="@id/name_tv"
-        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="199dp"
         android:gravity="center">
 
 
         <Button
-            android:layout_width="100dp"
             android:id="@+id/play"
+            android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="PLAY"
-            android:textSize="15sp"
-            android:textColor="@color/white"
-            android:onClick="openMainActivity"
             android:background="@drawable/oval_shape"
+            android:text="PLAY"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             tools:ignore="Suspicious0dp" />
 
 
     </LinearLayout>
-
-
-
-
-
-
 
 
 </RelativeLayout>
