@@ -3,8 +3,7 @@
     android:id="@+id/answer_rel_view"
     android:layout_width="40dp"
     android:layout_height="40dp"
-    android:layout_margin="5dp"
-    android:background="@drawable/black_bg">
+    android:layout_margin="5dp">
 
     <TextView
         android:id="@+id/answer_text_view"
