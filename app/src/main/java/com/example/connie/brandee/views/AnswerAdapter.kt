@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 
@@ -33,12 +34,12 @@ class AnswerAdapter(private var context: Context, private var questionsModel: Qu
     override fun onBindViewHolder(answerViewHolder: AnswerViewHolder, i: Int) {
         val text = inputs[i]
         if (text == '#') {
-            answerViewHolder.answerRelLayout.background = context.resources.getDrawable(R.drawable.black_bg)
+//            answerViewHolder.answerRelLayout.background = context.resources.getDrawable(R.drawable.black_bg)
             answerViewHolder.answerTextView.text = ""
         } else {
-            answerViewHolder.answerRelLayout.background = context.resources.getDrawable(R.drawable.green_bg)
+//            answerViewHolder.answerRelLayout.background = context.resources.getDrawable(R.drawable.green_bg)
             answerViewHolder.answerTextView.text = text.toString()
-            answerViewHolder.itemView.setOnClickListener { view ->
+            answerViewHolder.itemView.setOnClickListener {
                 inputs.removeAt(i)
                 inputs.add(i, '#')
                 notifyDataSetChanged()
@@ -53,7 +54,7 @@ class AnswerAdapter(private var context: Context, private var questionsModel: Qu
     }
 
     inner class AnswerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        internal var answerRelLayout: RelativeLayout = itemView.findViewById(R.id.answer_rel_view)
+        internal var answerRelLayout: LinearLayout = itemView.findViewById(R.id.answer_rel_view)
         internal var answerTextView: TextView = itemView.findViewById(R.id.answer_text_view)
     }
 

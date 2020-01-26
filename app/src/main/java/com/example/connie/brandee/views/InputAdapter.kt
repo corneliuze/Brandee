@@ -31,7 +31,7 @@ class InputAdapter(private val context: Context, private val input: ArrayList<Ch
             inputViewHolder.itemView.visibility = View.INVISIBLE
         } else {
             inputViewHolder.itemView.visibility = View.VISIBLE
-            inputViewHolder.itemView.setOnClickListener { view: View ->
+            inputViewHolder.itemView.setOnClickListener {
                 if (Collections.frequency(input, '#') != lengthOfAnswer) {
                     inputViewHolder.itemView.visibility = View.INVISIBLE
                     input.removeAt(i)

@@ -9,11 +9,31 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/light_family_nunito"
+        android:text="@string/level_1"
+        android:textSize="37sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:fontFamily="@font/light_family_nunito"
+        android:text="@string/what_company_s_logo_is_this"
+        android:textSize="14sp"
+        />
+
     <ImageView
         android:id="@+id/logo_image_view"
         android:layout_width="200dp"
         android:layout_height="140dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
         android:src="@color/colorPrimaryDark" />
@@ -40,8 +60,5 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
-
-
-
 
 </LinearLayout>
