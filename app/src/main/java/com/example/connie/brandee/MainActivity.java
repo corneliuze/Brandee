@@ -145,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements InputAdapter.Inpu
 
     // to read the json file from raw folder using apache library
     public String readFromFile() throws IOException {
-
         InputStream inputStream = getResources().openRawResource(R.raw.questions);
         return IOUtils.toString(inputStream); // apache library
     }
@@ -163,13 +162,11 @@ public class MainActivity extends AppCompatActivity implements InputAdapter.Inpu
     @Override
     public void onAnswerFilled(boolean isCorrect, QuestionsModel questionsModel) {
         if (isCorrect) {
-
             preferenceManager.addToAnsweredQuestion(questionsModel.getId());
             preferenceManager.setCurrentQuestions(null);
             openResult();
         } else {
             openWrongResult();
-
         }
 
     }

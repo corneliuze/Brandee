@@ -6,8 +6,12 @@ import android.content.SharedPreferences
 import com.example.connie.brandee.models.QuestionsModel
 import com.google.gson.Gson
 
-class PreferenceManager(private val context: Context) {
+class PreferenceManager(context: Context) {
     private val sharedPreferences: SharedPreferences
+
+    init {
+        sharedPreferences = context.getSharedPreferences(FILE_NAME, 0)
+    }
 
 
     //this method gets all the answered questions
@@ -18,12 +22,10 @@ class PreferenceManager(private val context: Context) {
     val currentQuestion: QuestionsModel?
         get() {
             val questionJsonToString = this.sharedPreferences.getString(CURRENT_QUESTIONS, "{}")
-            return if (questionJsonToString == "{}") null else Gson().fromJson<QuestionsModel>(questionJsonToString, QuestionsModel::class.java!!)
+            return if (questionJsonToString == "{}") null else Gson().fromJson<QuestionsModel>(questionJsonToString, QuestionsModel::class.java)
         }
 
-    init {
-        sharedPreferences = context.getSharedPreferences(FILE_NAME, 0)
-    }
+
 
     //this is the method to add answered questions to a string
     //they were added by the question id
@@ -35,7 +37,7 @@ class PreferenceManager(private val context: Context) {
     }
 
     //this method sets the current question
-    fun setCurrentQuestions(questionsModel: QuestionsModel) {
+    fun setCurrentQuestions(questionsModel: QuestionsModel?) {
         this.sharedPreferences.edit().putString(CURRENT_QUESTIONS, Gson().toJson(questionsModel)).apply()
         //converted the question is json form to strings using gson converter factory
     }
@@ -46,8 +48,8 @@ class PreferenceManager(private val context: Context) {
     }
 
     companion object {
-        private val ANSWERED_QUESTIONS = "ANSWERED_QUESTIONS"
-        private val CURRENT_QUESTIONS = "CURRENT_QUESTIONS"
-        private val FILE_NAME = "com.example.connie.brandee"
+        private const val ANSWERED_QUESTIONS = "ANSWERED_QUESTIONS"
+        private const val CURRENT_QUESTIONS = "CURRENT_QUESTIONS"
+        private const val FILE_NAME = "com.example.connie.brandee"
     }
 }
