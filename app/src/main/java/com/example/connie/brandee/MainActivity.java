@@ -3,7 +3,10 @@ package com.example.connie.brandee;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -192,8 +195,14 @@ public class MainActivity extends AppCompatActivity implements InputAdapter.Inpu
     }
 
     public void openWrongResult() {
-        Intent intent = new Intent(MainActivity.this, WrongResultActivity.class);
-        startActivity(intent);
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        Toast.makeText(this, "Wrong Answer, Try Again!!!", Toast.LENGTH_LONG).show();
+        if (Build.VERSION.SDK_INT >= 26) {
+            vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            vibrator.vibrate(200);
+        }
+
     }
 }
 
